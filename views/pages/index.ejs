@@ -7,29 +7,35 @@
 <body>
   <div class="container">
 
-  <a href="img/PhotoboothTest.png" class="swipebox">
+
+  <!-- <a href="img/PhotoboothTest.png" class="swipebox">
     <img src="img/PhotoboothTest.png" alt="image">
-  </a>
-  
-  <div id="myDivId"></div>
-  
-  </div>
+  </a>-->
+
+  <ul style="list-style-type:none;"></ul>
 
   <script type="text/javascript">
-    ;( function( $ ) {
-
-      $( '.swipebox' ).swipebox();
-
-    } )( jQuery );
+   
 
     $.ajax({
       url: "http://api.tumblr.com/v2/blog/ladiesnightwk.tumblr.com/posts?api_key=Lp1VLRjGzFaejZ8axwXhO6eGokElozaDOAaE4AqmGntAisMwtc",
       dataType: 'jsonp',
-      success: function(results){
+      success: function(posts){
         // Logs to your javascript console.
-        console.log(results); 
+        console.log(posts); 
         // writes the title to a div with the Id "myDivId" (ie. <div id="myDivId"></div>)
-        $("#myDivId").html(results.response.posts); 
+        var postings = posts.response.posts;
+        var text = '';
+
+        for (var i in postings) {
+          var p = postings[i];
+
+          text += '<li><img src=' + p.photos[0].original_size.url +'></li>';
+
+        }
+        $('ul').append(text);
+
+
       }
     });
   </script>
