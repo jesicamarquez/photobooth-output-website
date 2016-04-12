@@ -21,6 +21,17 @@
       $( '.swipebox' ).swipebox();
 
     } )( jQuery );
+
+    $.ajax({
+      url: "http://api.tumblr.com/v2/blog/ladiesnightwk.tumblr.com/posts?api_key=Lp1VLRjGzFaejZ8axwXhO6eGokElozaDOAaE4AqmGntAisMwtc",
+      dataType: 'jsonp',
+      success: function(results){
+        // Logs to your javascript console.
+        console.log(results); 
+        // writes the title to a div with the Id "myDivId" (ie. <div id="myDivId"></div>)
+        $("#myDivId").html(results.response.posts); 
+      }
+    });
   </script>
 
 
