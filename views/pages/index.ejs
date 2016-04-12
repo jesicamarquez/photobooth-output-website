@@ -5,13 +5,23 @@
 </head>
 
 <body>
+  <div class="container">
 
-  <% include ../partials/nav.ejs %>
-
-
-<div class="container">
+  <a href="img/PhotoboothTest.png" class="swipebox">
+    <img src="img/PhotoboothTest.png" alt="image">
+  </a>
   
-</div>
+  <div id="myDivId"></div>
+  
+  </div>
+
+  <script type="text/javascript">
+    ;( function( $ ) {
+
+      $( '.swipebox' ).swipebox();
+
+    } )( jQuery );
+  </script>
 
 
 </body>
